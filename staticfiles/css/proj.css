@@ -1,0 +1,222 @@
+body {
+    background-image: url('/static/images/bg1.jpg');
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    background-attachment: fixed;
+    
+}
+
+#body2 {
+    background-image: url('/static/images/bg2.png');
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    background-attachment: fixed;
+    
+}
+
+#login {
+    width: 300px;
+    height: 710px;
+    color: black;
+    background-color: rgb(194, 245, 203);
+    opacity: 1;
+    border-radius: 30px;
+    padding: 30px;
+    justify-content: center;
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 1000px;
+}
+#login img#logo {
+    width: 250px;
+    display: block; 
+    margin: 0 auto;
+    margin-bottom: -75px; 
+}
+#futurediv {
+    width: 30px;
+    margin-right: 170px;
+}
+#future {
+    width: 1190px;
+    height: 720px;
+    border-radius: 30px;
+}
+
+h3, h4 {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    justify-content: center;
+    text-align: center;
+    display: block;
+    margin: 0 auto 5px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: 25px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-top: -160px;
+    margin-left: 150px;
+    text-align: center;
+}
+
+h2 {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin-top: 50px;
+    font-size: 24px;
+    text-align: center;
+}
+
+p, label {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 18px;
+    font-style: italic;
+    font-weight: bold;
+}
+
+#logbutton {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 80%;
+    height: 50px;
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #5aaf32;
+    display: block;
+    margin: 0 auto; 
+    transition: background-color 0.3s;
+}
+#logbutton:hover {
+    background-color: #487d26; /* Change color when hovered */
+}
+#Email, #Password {
+    width: 90%;
+    height: 35px;
+    font-size: 14px;
+}
+/*----------------------------------------------*/
+
+#signup {
+    width: 450px;
+    height: 700px;
+    color: black;
+    background-color: rgb(194, 245, 203);
+    opacity: 1;
+    border-radius: 30px;
+    padding: 25px;
+    margin: 0 auto;
+}
+
+#signup img#logo {
+    width: 135px;
+    display: block; 
+    margin-bottom: -75px; 
+}
+#snum, #name{
+    width: 440px;
+    height: 20px;
+    font-size: 16px;
+}
+#yas {
+    width: 450px;
+    height: 25px;
+    font-size: 16px;
+}
+#email, #pass {
+    width: 440px;
+    height: 25px;
+    font-size: 16px;
+    margin: 0 auto 5px; 
+    margin-top: 5px;
+    margin-bottom: -10px;
+}
+#Ins {
+    width: 50%;
+    height: 35px;
+    font-size: 16px;
+    border-radius: 5px;
+    background-color: #5aaf32;
+    display: block;
+    margin: 0 auto; 
+    transition: background-color 0.3s;
+}
+#Ins:hover {
+    background-color: #487d26;
+}
+#Sel, #Upd, #Del {
+    width: 100px;
+    height: 35px;
+    font-size: 16px;
+    border-radius: 10px;
+    background-color: #5aaf32;
+    margin: 0 auto;
+    display: inline-block; 
+    margin-right: 20px; 
+    transition: background-color 0.3s;
+}
+#Sel:hover, #Upd:hover, #Del:hover {
+    background-color: #487d26;
+}
+#sudbuttons {
+    text-align: center; 
+}
+#sudbuttons button {
+    margin: 0 20px; 
+}
+#line {
+    width: 100%;
+    height: 1px;
+    background-color: #000; /* Black color for the line */
+    margin: 10px 0; /* Adjust the margin as needed */
+}
+#validationMessages {
+    width: 100%;
+    height: 10px;
+    color: red;
+    font-size: 5px; 
+    text-align: center;
+}
+/*------------------------------------------------------*/
+header {
+    background-color: rgb(25, 25, 25);
+    padding: 20px 0;
+    height: 35px;
+    width: 100%;
+    display: flex;   
+}
+
+
+nav {
+    display: flex;
+    justify-content: center;
+    display: flex;   
+}
+
+nav ul {
+    list-style-type: none;
+    padding-left: 1100px;
+    display: flex;
+    align-items: center;
+}
+
+nav li {
+    margin: 0 15px;
+}
+
+nav a {
+    font-family:'Times New Roman', Times, serif;
+    font-size: large;
+    color: #ffffff;
+}
+
+#nav-logo img {
+    max-width: 50px;
+    padding-left: 30px;
+}
+

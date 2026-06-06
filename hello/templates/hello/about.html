@@ -1,0 +1,50 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static '/css/otherstyle.css'%}"  rel="stylesheet" type="text/css">
+    <title>ABOUT</title>
+</head>
+<body class="second-bg">
+    <header>
+        <nav>
+            <div id="nav-logo">
+                <a href="https://www.facebook.com/tupcacts">
+                    <img src="{% static 'images/logo2.png' %}" alt="ACTS Logo">
+                </a>
+            </div>
+            <ul>
+                <li><a href="{% url 'Home'%}">HOME</a></li>
+                <li><a href="{% url 'About'%}">ABOUT</a></li>
+                <li><a href="{% url 'logout'%}">LOG OUT</a></li>
+            </ul>
+        </nav>
+    </header>
+        <div class="column3">
+            <div>
+                <h1><i><b>ABOUT</b></i></h1>
+                <p>Welcome to the temporary digital hub of the Association of Computer Technology Students (ACTS), created as part of the CPET12L midterm project at the Technological University of the Philippines - Cavite (TUP-CAVITE). ACTS is an energetic and progressive organization spearheaded by dedicated individuals pursuing the Bachelor of Engineering Technology majoring in Computer Engineering Technology under the BET-COET program.<br>
+                    
+                    <br><i><b>Our Mission</b></i>
+                    <br>The ACTS is committed to establishing effective working relationships with Computer Technology students, fostering open communication channels to represent and articulate the opinions of CoET students on various relevant matters. Furthermore, the ACTS aims to facilitate collaboration between CoET students and other student organizations, actively promoting and implementing joint programs. Additionally, the association is dedicated to undertaking projects and activities geared towards the overall development of the association and the growth of its members.
+                    Leadership Rooted in BET-COET Excellence
+                    Our organization is proudly led by computer technology students who have chosen the challenging and rewarding path of the Bachelor of Engineering Technology major in Computer Engineering Technology. As leaders in this field, we understand the importance of staying at the forefront of technological advancements and preparing ourselves for the dynamic landscape of the Computer Engineering industry.<br>
+                    
+                    <br><i><b>What Sets Us Apart</b></i><br>
+                    <b>Community Building:</b> ACTS is more than just an organization; it's a community. We believe in the power of collaboration, knowledge-sharing, and building lasting connections among computer technology enthusiasts.<br>
+                    
+                    <br><b>Professional Development:</b> We are dedicated to equipping our members with the skills and knowledge necessary to excel in their academic and professional endeavors. Through workshops, seminars, and industry partnerships, we aim to bridge the gap between academic learning and real-world applications.<br>
+                    
+                    <br><b>Innovation and Creativity:</b> In the fast-paced world of technology, innovation is key. ACTS encourages and celebrates creativity, providing a platform for members to explore new ideas, projects, and technologies.<br>
+                    
+                    <br><i><b>Join Us in Shaping the Future</i></b><br>
+                    Let's explore, learn, and innovate as we embark on this exciting journey in the world of computer engineering technology.
+                    Connect with us, and let's build a future where technology meets excellence!
+            </div>
+            
+        </div>
+</body>
+</html>

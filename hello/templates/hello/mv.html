@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static '/css/otherstyle.css'%}"  rel="stylesheet" type="text/css">
+    <title>MISSION & VISION</title>
+</head>
+<body class="second-bg">
+    <header>
+        <nav>
+            <div id="nav-logo">
+                <a href="https://www.facebook.com/tupcacts">
+                    <img src="{% static 'images/logo2.png' %}" alt="ACTS Logo">
+                </a>
+            </div>
+            <ul>
+                <li><a href="{% url 'Home'%}">HOME</a></li>
+                <li><a href="{% url 'About'%}">ABOUT</a></li>
+                <li><a href="{% url 'logout'%}">LOG OUT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="two-columns">
+        <div class="column1">
+            <div>
+                <h1><i><b>MISSION</b></i></h1>
+                <p>The ACTS is committed to establishing effective working relationships with Computer Technology students, fostering open communication channels to represent and articulate the opinions of CoET students on various relevant matters. Furthermore, the ACTS aims to facilitate collaboration between CoET students and other student organizations, actively promoting and implementing joint programs. Additionally, the association is dedicated to undertaking projects and activities geared towards the overall development of the association and the growth of its members.
+                </p>
+            </div>
+            
+        </div>
+        
+        <div class="column2">
+            <div>
+                <h1><i><b>VISION</b></i></h1>
+                <p>The members of the ACTS, particularly the Computer Engineering Technology (CoET) students will feel empowered to build connections with each other and prepare for the future through meaningful experience.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static '/css/otherstyle.css'%}"  rel="stylesheet" type="text/css">
+    <title>ACTS EXECUTIVES</title>
+</head>
+<body class="second-bg">
+    <header>
+        <nav>
+            <div id="nav-logo">
+                <a href="https://www.facebook.com/tupcacts">
+                    <img src="{% static 'images/logo2.png' %}" alt="ACTS Logo">
+                </a>
+            </div>
+            <ul>
+                <li><a href="{% url 'Home'%}">HOME</a></li>
+                <li><a href="{% url 'About'%}">ABOUT</a></li>
+                <li><a href="{% url 'logout'%}">LOG OUT</a></li>
+            </ul>
+        </nav>
+    </header>
+        <div class="column3">
+            <h2><i><b>ACTS EXECUTIVES AND REPRESENTATIVES</b></i></h2>
+        </div>
+
+        <div class="column4">
+                <img src="{% static 'images/1.jpg' %}" alt="MV" class="image">
+        </div>
+</body>
+</html>

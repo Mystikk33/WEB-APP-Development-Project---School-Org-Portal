@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static '/css/otherstyle.css'%}"  rel="stylesheet" type="text/css">
+    <title>ACTS COMMITEE</title>
+</head>
+<body class="second-bg">
+    <header>
+        <nav>
+            <div id="nav-logo">
+                <a href="https://www.facebook.com/tupcacts">
+                    <img src="{% static 'images/logo2.png' %}" alt="ACTS Logo">
+                </a>
+            </div>
+            <ul>
+                <li><a href="{% url 'Home'%}">HOME</a></li>
+                <li><a href="{% url 'About'%}">ABOUT</a></li>
+                <li><a href="{% url 'logout'%}">LOG OUT</a></li>
+            </ul>
+        </nav>
+    </header>
+        <div class="column3">
+            <div>
+                <h1><i><b>ACTS COMMITTEE</b></i></h1>
+                <p>The ACTS Task Committee for the academic year 2023-2324 is responsible for PLANNING, EXECUTING, and OVERSEEING various functions critical to the organization's success. Led by the Executives and Section Representatives, their duties include managing activities, initiatives, and projects that alighn with the organization's mission.</p>
+            </div>
+        </div>
+
+        <div class="column3">
+            <h2><i><b>ADMINISTRATIVE DOCUMENT COMMITTEE</b></i></h2>
+        </div>
+        <img class="box3" src="{% static 'images/d1.jpg' %}" alt="committe1" class="image">
+
+        <div class="column3">
+            <h2><i><b>REPRESENTATIVE COMMITTEE</b></i></h2>
+        </div>
+        <img class="box3" src="{% static 'images/d2.jpg' %}" alt="committe2" class="image">
+
+        <div class="column3">
+            <h2><i><b>MEMBERSHIP MONITORING COMMITTEE</b></i></h2>
+        </div>
+        <img class="box3" src="{% static 'images/d3.jpg' %}" alt="committe3" class="image">
+
+        <div class="column3">
+            <h2><i><b>MONETARY COMMITTEE</b></i></h2>
+        </div>
+        <img class="box3" src="{% static 'images/d4.jpg' %}" alt="committe4" class="image">
+
+        <div class="column3">
+            <h2><i><b>PROGRAM AND EVENT COMMITTEE</b></i></h2>
+        </div>
+        <img class="box3" src="{% static 'images/d5.jpg' %}" alt="committe5" class="image">
+
+        <div class="column3">
+            <h2><i><b>SOCIAL COMMUNICATION COMMITTEE</b></i></h2>
+        </div>
+        <img class="box3" src="{% static 'images/d6.jpg' %}" alt="committe6" class="image">
+
+</body>
+</html>

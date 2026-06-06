@@ -1,0 +1,194 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EDIT PROFILE</title>
+        <link href="{% static '/css/proj.css'%}"  rel="stylesheet" type="text/css">
+    </head>
+    <body id="body2">
+        <div id="signup">
+            <img src="{% static 'images/logo.png' %}" id="logo" alt="Logo">
+            <h1><i><b>Association of Computer Technology Students - CAVITE</i></b></h1>
+            <h2><i><b>Hello {{request.user}}, edit your profile here</b></h2>
+            <div id="line"></div>
+            <div id="content">
+                <label>Student Number: </label><br><input id="snum" type="text" placeholder="TUPC-**-****" style="font-style: italic;"><br><br>
+                <label>Name: </label><br><input id="name" type="text" placeholder="Enter your name" style="font-style: italic;"><br><br>
+                <label>Year and Section</label><br>
+                <select id="yas">
+                    <option value="BET-COET-1A">BET-COET-1A</option>
+                    <option value="BET-COET-2A">BET-COET-2A</option>
+                    <option value="BET-COET-3A">BET-COET-3A</option>
+                    <option value="BET-COET-3B">BET-COET-3B</option>
+                    <option value="BET-COET-4A">BET-COET-4A</option>
+                    <option value="BET-COET-4B">BET-COET-4B</option>
+                </select>
+                <br><br>
+                <div id="line"></div>
+                <label>Email: </label><br><input id="email" type="text" placeholder="user@gsfe.tupcavite.edu.ph" style="font-style: italic;"><br><br>
+                <label>Password: </label><br><input id="pass" type="password" placeholder="Enter your password" style="font-style: italic;"><br><br>
+            </div>
+            <br>
+            <div id="sudbuttons">
+                <button type="button" id="Sel">SELECT</button>
+                <button type="button" id="Upd">UPDATE</button>
+                <button type="button" id="Del">DELETE</button>
+                <br><br>
+            </div>
+            <button type="submit" id="Ins">UPDATE PROFILE</button>
+            <br>
+            <h4 id="member">
+                Go back to
+                <a href="{% url 'Home'%}">HOME</a>
+            </h4>
+        </div>
+        
+        <script type="module">
+
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js";
+            import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.5.0/firebase-analytics.js";
+    
+            const firebaseConfig = {
+              apiKey: "AIzaSyAznKvfVu45Qh6NtGNDfxsk-zOANZtHeUI",
+              authDomain: "jnjj-9485f.firebaseapp.com",
+              databaseURL: "https://jnjj-9485f-default-rtdb.firebaseio.com",
+              projectId: "jnjj-9485f",
+              storageBucket: "jnjj-9485f.appspot.com",
+              messagingSenderId: "1087655406684",
+              appId: "1:1087655406684:web:74b696049b89f932deca99",
+              measurementId: "G-2C779YREGN"
+            };
+          
+    
+            const app = initializeApp(firebaseConfig);
+            const analytics = getAnalytics(app);
+
+                import { getDatabase, ref, get, set, child, update, remove} from "https://www.gstatic.com/firebasejs/10.5.0/firebase-database.js";
+
+                const db = getDatabase();
+
+                var snum = document.getElementById("snum");
+                var name = document.getElementById("name");
+                var yas = document.getElementById("yas");
+                var email = document.getElementById("email");
+                var pass = document.getElementById("pass");
+
+                var ins = document.getElementById("Ins");
+                var sel = document.getElementById("Sel");
+                var upd = document.getElementById("Upd");
+                var del = document.getElementById("Del");
+
+                function validateEmail(email) {
+                    // Simple email validation using a regular expression
+                    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    return emailRegex.test(email);
+                }
+
+                function validatePassword(password) {
+                    return password.length >= 8;
+                }
+
+
+                function InsData() {
+                    const studentNumber = snum.value;
+                    const studentName = name.value;
+                    const yearAndSection = yas.value;
+                    const studentEmail = email.value;
+                    const studentPassword = pass.value;
+
+                    if (!validateEmail(studentEmail)) {
+                        alert("Invalid email address. Please enter a valid email.");
+                        return;
+                    }
+
+                    if (!validatePassword(studentPassword)) {
+                        alert("Invalid password. Password should be at least 8 characters long.");
+                        return;
+                    }
+                    const maskedPassword = '*'.repeat(studentPassword.length);
+
+                    set(ref(db, "Students/" + studentNumber), {
+                        StudentNumber: studentNumber,
+                        Name: studentName,
+                        YearAndSection: yearAndSection,
+                        Email: studentEmail,
+                        Password: studentPassword
+                    })
+                    .then(() => {
+                        const message = `The player with Student Number ${studentNumber} has been registered.\n\nDetails:\nName: ${studentName}\nYear and Section: ${yearAndSection}\nEmail: ${studentEmail}\nPassword: ${maskedPassword}`;
+                        alert(message);
+                    })
+                    .catch((error) => {
+                        alert("Unsuccessful, error: " + error);
+                    });
+                }
+
+                function SelData(){
+                    const dbref = ref(db);
+
+                    get(child(dbref, "Students/" + snum.value))
+                    .then((snapshot) =>{
+                        if(snapshot.exists()){
+                            snum.value=snapshot.val().StudentNumber;
+                            name.value=snapshot.val().Name;
+                            yas.value=snapshot.val().YearAndSection;
+                            email.value=snapshot.val().Email;
+                            pass.value=snapshot.val().Password;
+                        }
+
+                        else{
+                            alert("No data found");
+                        }
+                    })
+                    .catch((error) =>{
+                        alert("Unsuccessful, error:" + error);
+                    });
+                }
+
+                function UpdData() {
+                    const studentNumber = snum.value;
+                    const studentName = name.value;
+                    const yearAndSection = yas.value;
+                    const studentEmail = email.value;
+                    const studentPassword = pass.value;
+
+                   
+                    const maskedPassword = '*'.repeat(studentPassword.length);
+
+                    update(ref(db, "Students/" + studentNumber), {
+                        StudentNumber: studentNumber,
+                        Name: studentName,
+                        YearAndSection: yearAndSection,
+                        Email: studentEmail,
+                        Password: studentPassword
+                    })
+                    .then(() => {
+                        const message = `Student data with Student Number ${studentNumber} has been updated.\n\nUpdated Details:\nName: ${studentName}\nYear and Section: ${yearAndSection}\nEmail: ${studentEmail}\nPassword: ${maskedPassword}`;
+                        alert(message);
+                    })
+                    .catch((error) => {
+                        alert("Unsuccessful, error: " + error);
+                    });
+                }
+
+
+                function DelData(){
+                    remove(ref(db, "Students/" + snum.value))
+                    .then(() => {
+                        alert("Student Data Deleted Successfully");
+                    })
+                    .catch((error) =>{
+                        alert("Unsuccessful, error:" + error);
+                    });
+                }
+
+                Ins.addEventListener('click', InsData);
+                Sel.addEventListener('click', SelData);
+                Upd.addEventListener('click', UpdData);
+                Del.addEventListener('click', DelData);
+        </script>
+    </body>
+</html>

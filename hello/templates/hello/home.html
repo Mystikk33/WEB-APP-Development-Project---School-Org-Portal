@@ -1,0 +1,96 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static '/css/homestyle.css'%}"  rel="stylesheet" type="text/css">
+    <title>EDIT PROFILE</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div id="nav-logo">
+                <a href="https://www.facebook.com/tupcacts">
+                    <img src="{% static 'images/logo2.png' %}" alt="ACTS Logo">
+                </a>
+            </div>
+            <ul>
+                <li><a href="{% url 'Home'%}">HOME</a></li>
+                <li><a href="{% url 'About'%}">ABOUT</a></li>
+                <li><a href="{% url 'editProfile'%}">EDIT PROFILE</a></li>
+                <li><a href="{% url 'logout'%}">LOG OUT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h1 class="title">ASSOCIATION OF COMPUTER TECHNOLOGY STUDENTS</h1>
+    <h5 class="texth5">~ The Future is Ours to Create ~</h5>
+    <div class="green-div"> </div>
+
+    <div class="carousel-container">
+        <img id="carousel-image" src="{% static 'images/a.jpg' %}" alt="Carousel Image">
+    </div>        
+
+    <div class="invisible-div"></div>
+    <div class="box1" id="mvBox">
+        <img src="{% static 'images/mv.png' %}" alt="MV" class="image">
+    </div>
+
+    
+    <div class="invisible-div"></div>
+    <div class="box2" id="aeBox">
+        <img src="{% static 'images/ae.png' %}" alt="ACTS EXE" class="image">
+    </div>
+
+    <div class="invisible-div"></div>
+    <div class="box3" id="acBox">
+        <img src="{% static 'images/ac.png' %}" alt="ACTS COM" class="image">
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('mvBox').addEventListener('click', function() {
+                window.location.href = '{% url "MV" %}';
+            });
+            document.getElementById('aeBox').addEventListener('click', function() {
+                window.location.href = '{% url "AE" %}';
+            });
+
+            document.getElementById('acBox').addEventListener('click', function() {
+                window.location.href = '{% url "AC" %}';
+            });
+
+            function displayPic(picSrc) {
+                const skillImageContainer = document.getElementById('skill-image-container');
+                skillImageContainer.innerHTML = '';
+                const pic = document.createElement('img');
+                pic.src = picSrc;
+                pic.style.width = '100%';
+                pic.style.height = '100%';
+                pic.style.marginTop = '20px';
+                skillImageContainer.appendChild(pic);
+            }
+
+            var images = [
+                "{% static 'images/a.jpg' %}",
+                "{% static 'images/b.jpg' %}",
+                "{% static 'images/c.jpg' %}",
+                "{% static 'images/d.jpg' %}"
+            ];
+            
+            var currentIndex = 0;
+
+            function changeImage() {
+                var imageElement = document.getElementById("carousel-image");
+                imageElement.src = images[currentIndex];
+            
+                currentIndex = (currentIndex + 1) % images.length;
+            }
+
+            setInterval(changeImage, 2000);
+        });
+    </script>
+</body>
+</html>
